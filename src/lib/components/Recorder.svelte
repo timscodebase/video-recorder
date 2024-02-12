@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { N, T } from 'vitest/dist/reporters-1evA5lom.js'
+
 	type State = 'ready' | 'ready.countdown' | 'recording'
 	type Optional<T> = T | undefined
 	type Props = {
@@ -10,11 +12,11 @@
 
 	let { width, height, audio = true, frameRate = 60 } = $props<Props>()
 
-	let state = $state<State>('ready')
+	let state: State = $state('ready')
 	let recorder: MediaRecorder
 	let stream: MediaStream
 	let videoChunks: Blob[] = []
-	let timerInterval: number
+	let timerInterval: NodeJS.Timeout
 	let timer = $state(3)
 
 	async function startTimer() {
@@ -123,13 +125,19 @@
 
 <style>
 	button {
-		background-color: transparent;
+		width: 100%;
+		height: 100%;
+		background-color: var(--orange);
+		border-radius: 50%;
 		width: 100px;
 		height: 100px;
 		border: none;
 		cursor: pointer;
 		padding: 0;
 		margin: 0 auto;
+		border:
+			3px solid var(--surface),
+			6px solid var(--text);
 	}
 
 	.info {
@@ -149,21 +157,22 @@
 	}
 
 	.circle {
-		width: 100%;
-		height: 100%;
-		background-color: var(--orange);
-		border-radius: 50%;
 		display: grid;
 		place-content: center;
-		color: #000;
+		color: var(--text);
+		font-size: 2rem;
+		font-weight: bold;
+	}
+	.circle:hover {
+		background-color: var(--orange-hover);
+	}
+	.circle:active {
+		background-color: var(--orange-active);
 	}
 	.recorder {
-		position: absolute;
 		display: grid;
 		gap: 2rem;
 		place-content: center;
-		top: 40%;
-		left: 40%;
 		padding: 1rem;
 		font-family: 'Manrope Variable', sans-serif;
 		color: var(--text);
