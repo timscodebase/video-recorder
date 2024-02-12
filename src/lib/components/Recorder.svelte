@@ -10,12 +10,12 @@
 
 	let { width, height, audio = true, frameRate = 60 } = $props<Props>()
 
-	let state: State = 'ready'
+	let state = $state<State>('ready')
 	let recorder: MediaRecorder
 	let stream: MediaStream
 	let videoChunks: Blob[] = []
 	let timerInterval: number
-	let timer = 3
+	let timer = $state(3)
 
 	async function startTimer() {
 		state = 'ready.countdown'
@@ -113,7 +113,7 @@
 				<div class="shortcut">Shift + R</div>
 				<div class="decription">To start recording.</div>
 			{/if}
-			{#if state === 'ready'}
+			{#if state === 'recording'}
 				<div class="shortcut">Shift + S</div>
 				<div class="decription">To stop recording.</div>
 			{/if}
@@ -122,6 +122,24 @@
 {/if}
 
 <style>
+	button {
+		background-color: transparent;
+		width: 100px;
+		height: 100px;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+	}
+
+	.circle {
+		width: 100%;
+		height: 100%;
+		background-color: var(--orange);
+		border-radius: 50%;
+		display: grid;
+		place-content: center;
+		color: #000;
+	}
 	.recorder {
 		position: absolute;
 		top: 40%;
