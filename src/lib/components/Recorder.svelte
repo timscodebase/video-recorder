@@ -80,13 +80,6 @@
 		}
 
 		// videoEl.srcObject = mediaStream
-		settings = stream.getVideoTracks()[0].getSettings()
-
-		const mediaRecorder = new MediaRecorder(mediaStream)
-		mediaRecorder.addEventListener(`dataavailable`, (e) => {
-			videoEl.src = URL.createObjectURL(e.data)
-		})
-		mediaRecorder.start()
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
