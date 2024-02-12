@@ -129,6 +129,23 @@
 		border: none;
 		cursor: pointer;
 		padding: 0;
+		margin: 0 auto;
+	}
+
+	.info {
+		display: grid;
+		gap: 0.5rem;
+		text-align: center;
+	}
+
+	.shortcut {
+		font-weight: bold;
+		font-size: 1.5rem;
+	}
+
+	.decription {
+		color: var(--grey);
+		font-style: italic;
 	}
 
 	.circle {
@@ -142,6 +159,9 @@
 	}
 	.recorder {
 		position: absolute;
+		display: grid;
+		gap: 2rem;
+		place-content: center;
 		top: 40%;
 		left: 40%;
 		padding: 1rem;

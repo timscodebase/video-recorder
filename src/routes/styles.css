@@ -2,6 +2,8 @@
 
 :root {
   --white: #eee;
+  --grey: #999999;
+  --gray: var(--grey);
   --black: #222;
   --dark-grey: hsl(220, 10%, 20%);
   --dark-gray: var(--dark-grey);
