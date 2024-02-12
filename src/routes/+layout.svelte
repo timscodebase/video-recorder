@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Recorder from '$lib'
+	import './styles.css'
 </script>
 
-<Recorder />
+<slot />
 
 <style>
 </style>
