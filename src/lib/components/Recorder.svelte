@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { NodeJS } from '@types/node'
 	type State = 'ready' | 'ready.countdown' | 'recording'
 	type Optional<T> = T | undefined
 	type Props = {
@@ -15,7 +14,7 @@
 	let recorder: MediaRecorder
 	let stream: MediaStream
 	let videoChunks: Blob[] = []
-	let timerInterval: NodeJS.Timeout
+	let timerInterval: number
 	let timer = 3
 
 	async function startTimer() {

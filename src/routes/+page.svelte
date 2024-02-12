@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Recorder from '$lib'
+	import { Recorder } from '$lib'
 </script>
 
-<Recorder />
+<Recorder width={320} height={240} audio={true} frameRate={60} />
 
 <style>
 </style>
